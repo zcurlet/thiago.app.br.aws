@@ -9,14 +9,22 @@
       "UnauthRoleName": "amplify-thiagoappbraws-dev-9a21e-unauthRole",
       "StackName": "amplify-thiagoappbraws-dev-9a21e",
       "StackId": "arn:aws:cloudformation:us-east-2:569573626297:stack/amplify-thiagoappbraws-dev-9a21e/fbb9beb0-1bff-11f0-aa2d-06c9c4f98b6b",
-      "AmplifyAppId": "d9e7eez5hyz84"
+      "AmplifyAppId": "d9e7eez5hyz84",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-thiagoappbraws-dev-9a21e-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
         "thiagoappbrawsea033ed4": {}
       },
       "api": {
-        "thiagoappbraws": {}
+        "thiagoappbraws": {},
+        "financeApi": {}
+      },
+      "function": {
+        "financeApiProxy": {
+          "deploymentBucketName": "amplify-thiagoappbraws-dev-9a21e-deployment",
+          "s3Key": "amplify-builds/financeApiProxy-48375342426136705769-build.zip"
+        }
       }
     }
   }

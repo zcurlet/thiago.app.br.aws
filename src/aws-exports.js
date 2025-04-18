@@ -27,7 +27,14 @@ const awsmobile = {
     "aws_appsync_graphqlEndpoint": "https://a6w2xu5cnfbunmtx6zn25iyxga.appsync-api.us-east-2.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-2",
     "aws_appsync_authenticationType": "API_KEY",
-    "aws_appsync_apiKey": "da2-dzqpzfesgzd7rj7xctueweme7e"
+    "aws_appsync_apiKey": "da2-dzqpzfesgzd7rj7xctueweme7e",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "financeApi",
+            "endpoint": "https://2ven0xcicl.execute-api.us-east-2.amazonaws.com/dev",
+            "region": "us-east-2"
+        }
+    ]
 };
 
 
