@@ -9,7 +9,8 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import NewAnalysis from './pages/NewAnalysis';
 import AnalysisDetail from './pages/AnalysisDetail';
-import FundamentalAnalysis from './pages/FundamentalAnalysis'; // Adicione esta importação
+import FundamentalAnalysis from './pages/FundamentalAnalysis';
+import StockAnalysis from './components/StockAnalysis';
 import './index.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               element={
                 <PrivateRoute>
                   <Dashboard />
+                  <StockAnalysis />
                 </PrivateRoute>
               } 
             />
