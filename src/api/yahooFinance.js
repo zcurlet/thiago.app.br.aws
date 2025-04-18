@@ -1,25 +1,33 @@
-// src/api/yahooFinance.js
-import axios from 'axios';
+import { API } from 'aws-amplify';
 
 // Função para buscar dados fundamentalistas
 export const getFundamentalData = async (ticker) => {
   try {
-    // Adicionar 'SA' para ações brasileiras no Yahoo Finance
-    const brTicker = ticker.endsWith('.SA') ? ticker : `${ticker}.SA`;
+    console.log('Buscando dados fundamentalistas para:', ticker);
     
-    // Usando o proxy Beeceptor que é especificamente configurado para Yahoo Finance
-    const proxyUrl = 'https://yahoo-finance-api.free.beeceptor.com';
-    
-    const response = await axios.get(`${proxyUrl}/get-quote`, {
-      params: {
-        symbol: brTicker
-      },
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest'
+    // Buscar dados básicos da empresa
+    const stockInfoResponse = await API.get('yahooFinanceApi', '/finance', {
+      queryStringParameters: {
+        symbol: ticker,
+        endpoint: 'quote'
       }
-    }) ;
+    });
     
-    return response.data;
+    // Buscar dados financeiros detalhados
+    const financialDataResponse = await API.get('yahooFinanceApi', '/finance', {
+      queryStringParameters: {
+        symbol: ticker,
+        endpoint: 'summary'
+      }
+    });
+    
+    console.log('Dados básicos recebidos:', stockInfoResponse);
+    console.log('Dados financeiros recebidos:', financialDataResponse);
+    
+    return {
+      basicInfo: stockInfoResponse.quoteResponse.result[0],
+      financials: financialDataResponse.quoteSummary.result[0]
+    };
   } catch (error) {
     console.error('Erro ao buscar dados fundamentalistas:', error);
     throw error;
@@ -29,24 +37,19 @@ export const getFundamentalData = async (ticker) => {
 // Função para buscar dados históricos
 export const getHistoricalData = async (ticker, period = '5y', interval = '1mo') => {
   try {
-    // Adicionar 'SA' para ações brasileiras no Yahoo Finance
-    const brTicker = ticker.endsWith('.SA') ? ticker : `${ticker}.SA`;
+    console.log('Buscando dados históricos para:', ticker);
     
-    // Usando o proxy Beeceptor
-    const proxyUrl = 'https://yahoo-finance-api.free.beeceptor.com';
-    
-    const response = await axios.get(`${proxyUrl}/get-history`, {
-      params: {
-        symbol: brTicker,
+    const response = await API.get('yahooFinanceApi', '/finance', {
+      queryStringParameters: {
+        symbol: ticker,
+        endpoint: 'chart',
         period: period,
         interval: interval
-      },
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest'
       }
-    }) ;
+    });
     
-    return response.data;
+    console.log('Dados históricos recebidos:', response);
+    return response;
   } catch (error) {
     console.error('Erro ao buscar dados históricos:', error);
     throw error;

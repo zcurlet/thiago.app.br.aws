@@ -33,6 +33,11 @@ const awsmobile = {
             "name": "financeApi",
             "endpoint": "https://2ven0xcicl.execute-api.us-east-2.amazonaws.com/dev",
             "region": "us-east-2"
+        },
+        {
+            "name": "yahooFinanceApi",
+            "endpoint": "https://840u0yuaj2.execute-api.us-east-2.amazonaws.com/dev",
+            "region": "us-east-2"
         }
     ]
 };
