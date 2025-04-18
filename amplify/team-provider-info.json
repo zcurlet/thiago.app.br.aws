@@ -18,17 +18,12 @@
       },
       "api": {
         "thiagoappbraws": {},
-        "financeApi": {},
-        "yahooFinanceApi": {}
+        "financeApi": {}
       },
       "function": {
         "financeApiProxy": {
           "deploymentBucketName": "amplify-thiagoappbraws-dev-9a21e-deployment",
           "s3Key": "amplify-builds/financeApiProxy-48375342426136705769-build.zip"
-        },
-        "yahooFinanceProxy": {
-          "deploymentBucketName": "amplify-thiagoappbraws-dev-9a21e-deployment",
-          "s3Key": "amplify-builds/yahooFinanceProxy-497653476d4464553278-build.zip"
         }
       }
     }
