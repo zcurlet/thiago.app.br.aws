@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import NewAnalysis from './pages/NewAnalysis';
 import AnalysisDetail from './pages/AnalysisDetail';
+import FundamentalAnalysis from './pages/FundamentalAnalysis'; // Adicione esta importação
 import './index.css';
 
 function App() {
@@ -41,6 +42,15 @@ function App() {
               element={
                 <PrivateRoute>
                   <AnalysisDetail />
+                </PrivateRoute>
+              } 
+            />
+            {/* Adicione a nova rota para análise fundamentalista */}
+            <Route 
+              path="/analise/:ticker" 
+              element={
+                <PrivateRoute>
+                  <FundamentalAnalysis />
                 </PrivateRoute>
               } 
             />
